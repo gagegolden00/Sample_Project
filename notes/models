@@ -7,6 +7,12 @@
 # re-write the validation methods but it's possible they can still be used across the
 # application where needed.
 
+NORMALLY I would use conditionals but RAILS has built-in validation features
+here is an example and to see more check out the models. Im sure there are A LOT.
+"validates :title, presence: true"
+
+
+
 ## its important to remember that these models give us getters and setters
 # so .title & .description are valid getters & setters eg...
 # .title = "new title" & .description = "new description"

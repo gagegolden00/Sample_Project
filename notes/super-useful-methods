@@ -1,0 +1,27 @@
+
+#########
+variable_name.error.full_messages = a great description of the error for instance
+if you try to init a new article obj as a var with new and your validation stops
+you because a title is not present then this command will reveal that.
+
+EXAMPLE = it will let you create it in memory but NOT save it to the database
+interesting...🤔 I personally dont think is should even be allowed to exist in memory
+
+irb(main):004:0> new_article_new = Article.new(title: "new article new title")
+=>
+#<Article:0x000000010d275ae8
+...
+irb(main):005:0> new_article
+=>
+#<Article:0x000000010d313400
+ id: nil,
+ title: "new article title",
+ created_at: nil,
+ updated_at: nil,
+ description: nil>
+irb(main):006:0> new_article_new.save
+=> false
+irb(main):007:0> new_article_new.errors.full_messages
+=> ["Description can't be blank"]
+irb(main):008:0>
+################
