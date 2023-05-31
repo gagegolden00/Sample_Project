@@ -4,5 +4,9 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   get "/about", to: 'pages#about'
+  
+  # this is what they meant when they said you typically wont define routes like in sinatra
+  resources :articles
+  
 
 end

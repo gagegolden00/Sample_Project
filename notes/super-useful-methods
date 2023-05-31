@@ -1,6 +1,6 @@
 
 #########
-variable_name.error.full_messages = a great description of the error for instance
+1) variable_name.error.full_messages = a great description of the error for instance
 if you try to init a new article obj as a var with new and your validation stops
 you because a title is not present then this command will reveal that.
 
@@ -25,3 +25,7 @@ irb(main):007:0> new_article_new.errors.full_messages
 => ["Description can't be blank"]
 irb(main):008:0>
 ################
+2) rails routes --expanded
+################
+
+
