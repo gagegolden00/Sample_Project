@@ -1,0 +1,53 @@
+# the model will be responsible (primarily) for input validation since it is interacting with the database
+# that DOES NOT mean that input validation should be restricted to models in my opinion
+# I believe all input should be validated before it has a chance to interact with the
+# part of the program that interacts with the database. I could be wrong but this would give
+# the application another layer of security.
+# this is where it is primarily used and centralized, this means you dont have to
+# re-write the validation methods but it's possible they can still be used across the
+# application where needed.
+
+## its important to remember that these models give us getters and setters
+# so .title & .description are valid getters & setters eg...
+# .title = "new title" & .description = "new description"
+# Your going to want to pass these as params in () but that wont work so remember
+# REMEMBER TO .save AFTER CHANGES
+
+###### CRUD FROM THE BACKEND ########
+
+# you can run the rails console with 'rails console' command and then access these
+# classes. for instance run Article.all and it will generate a SQL command to
+# retrieve all from the database. pretty neat
+
+# USING CREATE METHOD
+# from here you can also create new entries in the database by running ruby code
+# Article.create(title: "sample article title", description: "sample article description")
+# notice create method is being used here and not new. this is because new does not
+# persist to the database, so when adding DIRECTLY to the database we want to create.
+
+# USING NEW METHOD
+# the best way to do this is assigning a variable and then using the getters/setters
+# to inject the information about the object.. like so
+# article2 = Article.new (create new article)
+# article (this command will simply show the values which are nil if not initialized)
+# article.title = "article 2"
+# article.description = "article 2 description"
+# !! !! !! !! !! !! !! !! !! !! !! !! !! !! !! !! !! !! !! !! !! !! !! !!
+# I notice when doing this ALL of the fields are init set to nil even timestamps & id
+# these fields wont be generated UNTIL it hits the database using save method like so
+# this is the difference between new and create
+# article2.save
+# and bam there are the values. it works.
+### !! !! !! you can just chain the .save method
+
+
+### USEFUL RAILS CONSOLE COMMANDS (aka ruby methods)
+# everything ran in rails console is valid ruby code obviously eg...
+# Article.find(id) # only works with id NOT title seems the SQL query is only set to accept an id
+
+
+
+### DESTROY
+# article.destroy removes it straight from the database no need to .save
+# you can use this on a variable or pass in an ID on the class itself
+# Article.destroy(id)
